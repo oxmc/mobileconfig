@@ -1,0 +1,46 @@
+<?xml version=”1.0” encoding=”UTF-8”?>
+<!DOCTYPE plist PUBLIC “-//Apple//DTD PLIST 1.0//EN” “http://www.apple.com/DTDs/PropertyList-1.0.dtd”>
+<plist version=”1.0”>
+<dict>
+    <key>PayloadContent</key>
+    <array>
+        <dict>
+            <key>AirPrint</key>
+            <array>
+                <dict>
+                    <key>IPAddress</key>
+                    <string>{{IPAddr}}</string>
+                    <key>ResourcePath</key>
+                    <string>{{ResPath}}</string>
+                </dict>
+            </array>
+            <key>PayloadDescription</key>
+            <string>Configures AirPrint settings</string>
+            <key>PayloadDisplayName</key>
+            <string>{{displayName}}</string>
+            <key>PayloadIdentifier</key>
+            <string>org.sacredsf.profiles.airprint</string>
+            <key>PayloadType</key>
+            <string>com.apple.airprint</string>
+            <key>PayloadUUID</key>
+            <string>{{contentUuid}}</string>
+            <key>PayloadVersion</key>
+            <integer>1</integer>
+        </dict>
+    </array>
+    {{#if organization}}
+        <key>PayloadOrganization</key>
+        <string>{{organization}}</string>
+    {{/if}}
+    <key>PayloadDisplayName</key>
+    <string>AirPrint</string>
+    <key>PayloadIdentifier</key>
+    <string>org.sacredsf.profiles.airprint</string>
+    <key>PayloadType</key>
+    <string>Configuration</string>
+    <key>{{PayloadUUID}}</key>
+    <string>{{plistUuid}}</string>
+    <key>PayloadVersion</key>
+    <integer>1</integer>
+</dict>
+</plist>
