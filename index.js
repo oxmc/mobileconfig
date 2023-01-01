@@ -284,7 +284,6 @@ module.exports = {
             displayName: options.displayName,
             IPAddr: options.printer.ip,
             ResPath: options.printer.path,
-            password: options.printer.,
             organization: options.organization || false,
             contentUuid: options.contentUuid || uuid.v4(),
             plistUuid: options.plistUuid || uuid.v4()
