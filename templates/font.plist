@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>PayloadContent</key>
+    <array>
+        <dict>
+            <key>Font</key>
+            <data>
+              {{FontB64}}
+            </data>
+            <key>PayloadIdentifier</key>
+            <string>org.sacredsf.profile.font</string>
+            <key>PayloadType</key>
+            <string>com.apple.font</string>
+            <key>PayloadUUID</key>
+            <string>{{contentUuid}}</string>
+            <key>PayloadVersion</key>
+            <integer>1</integer>
+        </dict>
+    </array>
+    <key>PayloadIdentifier</key>
+    <string>org.sacredsf.profile.font</string>
+    <key>PayloadRemovalDisallowed</key>
+    <true/>
+    <key>PayloadDisplayName</key>
+    <string>{{displayName}}</string>
+    {{#if organization}}
+      <key>PayloadOrganization</key>
+      <string>{{organization}}</string>
+    {{/if}}
+    <key>PayloadType</key>
+    <string>Configuration</string>
+    <key>PayloadUUID</key>
+    <string>{{plistUuid}}</string>
+    <key>PayloadVersion</key>
+    <integer>1</integer>
+</dict>
+</plist>

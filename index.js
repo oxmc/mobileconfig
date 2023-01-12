@@ -12,7 +12,8 @@ const templates = {
     carddav: Handlebars.compile(fs.readFileSync(path.join(__dirname, 'templates', 'carddav.plist'), 'utf-8')),
     caldav: Handlebars.compile(fs.readFileSync(path.join(__dirname, 'templates', 'caldav.plist'), 'utf-8')),
     wifi: Handlebars.compile(fs.readFileSync(path.join(__dirname, 'templates', 'wifi.plist'), 'utf-8')),
-    airprint: Handlebars.compile(fs.readFileSync(path.join(__dirname, 'templates', 'airprint.plist'), 'utf-8'))
+    airprint: Handlebars.compile(fs.readFileSync(path.join(__dirname, 'templates', 'airprint.plist'), 'utf-8')),
+    font: Handlebars.compile(fs.readFileSync(path.join(__dirname, 'templates', 'font.plist'), 'utf-8'))
 };
 
 module.exports = {
@@ -284,7 +285,6 @@ module.exports = {
             displayName: options.displayName,
             IPAddr: options.printer.ip,
             ResPath: options.printer.path,
-            password: options.printer.,
             organization: options.organization || false,
             contentUuid: options.contentUuid || uuid.v4(),
             plistUuid: options.plistUuid || uuid.v4()
@@ -305,6 +305,40 @@ module.exports = {
 
         try {
             plistFile = module.exports.getAirPrintConfig(options);
+        } catch (E) {
+            return callback(E);
+        }
+
+        return module.exports.sign(plistFile, options.keys, callback);
+    },
+    
+    getFontConfig(options, callback) {
+        options = options || {};
+        fontb64 = fs.readFileSync(path.join(options.font));
+        
+        let data = {
+            displayName: options.displayName,
+            organization: options.organization || false,
+            fontFile: fontb64 || null,
+            contentUuid: options.contentUuid || uuid.v4(),
+            plistUuid: options.plistUuid || uuid.v4()
+        };
+
+        if (callback) {
+            callback(null, templates.font(data));
+            return;
+        }
+
+        return templates.font(data);
+    },
+
+    getSignedFontConfig(options, callback) {
+        options = options || {};
+
+        let plistFile;
+
+        try {
+            plistFile = module.exports.getFontConfig(options);
         } catch (E) {
             return callback(E);
         }
