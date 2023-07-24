@@ -13,7 +13,8 @@ const templates = {
     caldav: Handlebars.compile(fs.readFileSync(path.join(__dirname, 'templates', 'caldav.plist'), 'utf-8')),
     wifi: Handlebars.compile(fs.readFileSync(path.join(__dirname, 'templates', 'wifi.plist'), 'utf-8')),
     airprint: Handlebars.compile(fs.readFileSync(path.join(__dirname, 'templates', 'airprint.plist'), 'utf-8')),
-    font: Handlebars.compile(fs.readFileSync(path.join(__dirname, 'templates', 'font.plist'), 'utf-8'))
+    font: Handlebars.compile(fs.readFileSync(path.join(__dirname, 'templates', 'font.plist'), 'utf-8')),
+    webclip: Handlebars.compile(fs.readFileSync(path.join(__dirname, 'templates', 'webclip.plist'), 'utf-8'))
 };
 
 module.exports = {
@@ -339,6 +340,40 @@ module.exports = {
 
         try {
             plistFile = module.exports.getFontConfig(options);
+        } catch (E) {
+            return callback(E);
+        }
+
+        return module.exports.sign(plistFile, options.keys, callback);
+    },
+
+    getWebclipConfig(options, callback) {
+        options = options || {};
+        
+        let data = {
+            displayName: options.displayName,
+            label: options.label,
+            organization: options.organization || false,
+            url: options.url || null,
+            contentUuid: options.contentUuid || uuid.v4(),
+            plistUuid: options.plistUuid || uuid.v4()
+        };
+
+        if (callback) {
+            callback(null, templates.webclip(data));
+            return;
+        }
+
+        return templates.webclip(data);
+    },
+
+    getSignedWebclipConfig(options, callback) {
+        options = options || {};
+
+        let plistFile;
+
+        try {
+            plistFile = module.exports.getWebclipConfig(options);
         } catch (E) {
             return callback(E);
         }

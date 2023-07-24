@@ -18,7 +18,7 @@
             <key>URL</key>
             <string>{{url}}</string>
             <key>PayloadIdentifier</key>
-            <stringorg.sacredsf.profiles.webclip</string>
+            <string>org.sacredsf.profiles.webclip</string>
             <key>PayloadType</key>
             <string>com.apple.webClip.managed</string>
             <key>PayloadUUID</key>
@@ -28,17 +28,17 @@
         </dict>
     </array>
     {{#if organization}}
-        <key>PayloadOrganization</key>
-        <string>{{organization}}</string>
+    <key>PayloadOrganization</key>
+    <string>{{organization}}</string>
     {{/if}}
     <key>PayloadDisplayName</key>
-    <string>Web Clip</string>
+    <string>{{displayName}}</string>
     <key>PayloadIdentifier</key>
-    <string>com.example.myprofile</string>
+    <string>org.sacredsf.profile.webclip</string>
     <key>PayloadType</key>
     <string>Configuration</string>
     <key>PayloadUUID</key>
-    <string>{{plistuuid}}</string>
+    <string>{{plistUuid}}</string>
     <key>PayloadVersion</key>
     <integer>1</integer>
 </dict>
