@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.4.4](https://github.com/oxmc/mobileconfig/compare/v2.4.3...v2.4.4) (2026-03-28)
+
+
+### Bug Fixes
+
+* add package-lock file ([#27](https://github.com/oxmc/mobileconfig/issues/27)) ([1a961bb](https://github.com/oxmc/mobileconfig/commit/1a961bb8b0e853a6f802ee353789844853fc6a26))
+* **workflows:** ZMSA-46: update workflows ([#34](https://github.com/oxmc/mobileconfig/issues/34)) ([66e177e](https://github.com/oxmc/mobileconfig/commit/66e177e1983c9663ddf93d8a5c185192966072b7))
+* ZMSA-1: scope package, add release workflow ([#25](https://github.com/oxmc/mobileconfig/issues/25)) ([78b8678](https://github.com/oxmc/mobileconfig/commit/78b8678252d3eba618a14bb64522b8976a526f83))
+
 ## [2.4.3](https://github.com/zone-eu/mobileconfig/compare/v2.4.2...v2.4.3) (2025-12-08)
 
 
