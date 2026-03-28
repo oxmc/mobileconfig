@@ -1,6 +1,6 @@
 {
-    "name": "mobileconfig",
-    "version": "2.4.0",
+    "name": "@zone-eu/mobileconfig",
+    "version": "2.4.3",
     "description": "Create and sign iOS mobileconfig configuration files",
     "main": "index.js",
     "scripts": {
@@ -8,18 +8,18 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/andris9/mobileconfig.git"
+        "url": "git+https://github.com/zone-eu/mobileconfig.git"
     },
     "keywords": [
         "RFC5652",
         "SignedData"
     ],
     "author": "Andris Reinman",
-    "license": "MIT",
+    "license": "(MIT OR EUPL-1.1+)",
     "bugs": {
-        "url": "https://github.com/andris9/mobileconfig/issues"
+        "url": "https://github.com/zone-eu/mobileconfig/issues"
     },
-    "homepage": "https://github.com/andris9/mobileconfig#readme",
+    "homepage": "https://github.com/zone-eu/mobileconfig#readme",
     "dependencies": {
         "handlebars": "4.7.7",
         "jsrsasign": "9.1.9",
